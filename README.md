@@ -1,6 +1,5 @@
---------------
 # line-chomper
---------------
+**************
 
 Chomps utf-8 based byte stream into lines. 
 
@@ -11,6 +10,6 @@ Chomps utf-8 based byte stream into lines.
 - Byte offset and length information
 - Random access, using raw byte offsets or precompiled information
 
---------------
+**************
 
 More to come...
