@@ -1,5 +1,4 @@
 # line-chomper
-**************
 
 Chomps utf-8 based byte stream into lines. 
 
@@ -8,8 +7,9 @@ Chomps utf-8 based byte stream into lines.
 - Detect any newline convention (PC/Mac/Linux)
 - Correct end file / last line treatment
 - Correct handling of multi-byte UTF-8 characters
-- Byte offset and length information
-- Random access, using raw byte offsets or precompiled information
+- Retrieve byte offset and byte length information
+- Random access, using line-based or byte-based offsets
+- Automatically compile line-mapping information, to speed up random access
 
 **************
 
