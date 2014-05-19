@@ -1,0 +1,27 @@
+{
+  "name": "line-chomper",
+  "version": "0.0.1",
+  "description": "Chomps utf-8 based byte stream into lines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panta82/line-chomper.git"
+  },
+  "keywords": [
+    "stream",
+    "lines",
+    "split",
+    "chomp",
+    "buffer",
+    "cut"
+  ],
+  "author": "panta82",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/panta82/line-chomper/issues"
+  },
+  "homepage": "https://github.com/panta82/line-chomper"
+}
