@@ -58,4 +58,50 @@ describe("Advanced chomping", function () {
 			done();
 		});
 	});
+
+	it("can interactively interrupt line-by-line streaming", function (done) {
+		var counter = 0;
+		libLineChomper.chomp(
+			__dirname + "/files/small-nix.txt",
+			{
+				returnLines: true,
+				lineCallback: function (line) {
+					counter++;
+					if (counter === 2) {
+						return false;
+					}
+					expect(counter).toBeLessThan(3);
+				}
+			},
+			function (err, lines) {
+				expect(lines.length).toEqual(1);
+				expect(lines[0]).toEqual("line1");
+				expect(counter).toEqual(2);
+				done();
+			}
+		);
+	});
+
+	it("can interactively perform map and filter operations", function (done) {
+		libLineChomper.chomp(
+			__dirname + "/files/small-nix.txt",
+			{
+				returnLines: true,
+				lineCallback: function (line) {
+					if (!line) {
+						return null;
+					} else {
+						return line.toUpperCase();
+					}
+				}
+			},
+			function (err, lines) {
+				expect(lines.length).toEqual(3);
+				expect(lines[0]).toEqual("LINE1");
+				expect(lines[1]).toEqual("LINE2");
+				expect(lines[2]).toEqual("LINE4");
+				done();
+			}
+		);
+	});
 });

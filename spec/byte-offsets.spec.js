@@ -4,13 +4,6 @@ var libLineChomper = require("../lib/line-chomper");
 
 describe("Random access using byte offsets", function () {
 
-	it("can chomp file from byte offset to end test", function (done) {
-		libLineChomper.chomp(__dirname + "/files/small-nix.txt", { returnDetails: true }, function (err, lines) {
-			console.log(lines);
-			done();
-		});
-	});
-
 	it("can chomp file from byte offset to end", function (done) {
 		libLineChomper.chomp(__dirname + "/files/small-nix.txt", { fromByte: 11 }, function (err, lines) {
 			expect(lines.length).toEqual(2);
