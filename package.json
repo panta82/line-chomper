@@ -1,6 +1,6 @@
 {
   "name": "line-chomper",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Chomps utf-8 based byte stream into lines.",
   "main": "index.js",
   "scripts": {
