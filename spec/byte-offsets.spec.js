@@ -31,7 +31,7 @@ describe("Random access using byte offsets", function () {
 		});
 	});
 
-	it("can chomp arbitrary stream, respecting offsets", function (done) {
+	it("can chomp arbitrary stream, respecting byte offsets", function (done) {
 		var stream = new Stream.Readable();
 		stream._read = function () {};
 
