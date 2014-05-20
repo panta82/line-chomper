@@ -2,7 +2,11 @@ var Stream = require("stream");
 
 var libLineChomper = require("../lib/line-chomper");
 
-/*libLineChomper.chomp("../spec/files/small-nix.txt", { fromByte: 0, toByte: 8 }, function (err, lines) {
+/*libLineChomper.mapLineOffsets("../spec/files/small-nix.txt", 1, function (err, lineOffsets) {
+	console.log(lineOffsets);
+});*/
+
+/*libLineChomper.chomp("../spec/files/small-nix.txt", { fromByte: 11, toByte: 15 }, function (err, lines) {
 	console.log(err, lines);
 });*/
 
@@ -14,7 +18,7 @@ var libLineChomper = require("../lib/line-chomper");
 	console.log(lines);
 });*/
 
-var options = {
+/*var options = {
 	lineOffsets: [
 		{ line: 1, offset: 6 },
 		{ line: 2, offset: 12 },
@@ -24,7 +28,7 @@ var options = {
 };
 libLineChomper.chomp("../spec/files/small-nix.txt", options, function (err, lines) {
 	console.log(lines);
-});
+});*/
 
 /*
 var stream = new Stream.Readable();
