@@ -1,7 +1,6 @@
 var Stream = require("stream");
 
-var libTools = require("../lib/tools"),
-	libLineChomper = require("../lib/line-chomper");
+var libLineChomper = require("../lib/line-chomper");
 
 describe("Basic chomping", function () {
 
@@ -35,7 +34,7 @@ describe("Basic chomping", function () {
 		});
 	});
 
-	it("should keep last empty line if specified", function (done) {
+	it("will keep last empty line if specified", function (done) {
 		libLineChomper.chomp(__dirname + "/files/small-nix.txt", { keepLastEmptyLine: true }, function (err, lines) {
 			verifySmallFileProcessedCorrectly(err, lines, true);
 			done();
@@ -51,7 +50,7 @@ describe("Basic chomping", function () {
 		});
 	});
 
-	it("should accept custom stream", function (done) {
+	it("can accept arbitrary stream", function (done) {
 		var stream = new Stream.Readable();
 		stream._read = function noop() {};
 
@@ -71,7 +70,7 @@ describe("Basic chomping", function () {
 		stream.push(null);
 	});
 
-	it("should return error for missing files", function (done) {
+	it("will return error for missing files", function (done) {
 		libLineChomper.chomp(__dirname + "/files/not-there.txt", function (err, lines) {
 			expect(err).not.toBeNull();
 			expect(err.code).toEqual("ENOENT");

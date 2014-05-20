@@ -1,5 +1,3 @@
-var Stream = require("stream");
-
 var libTools = require("../lib/tools"),
 	libLineChomper = require("../lib/line-chomper");
 
