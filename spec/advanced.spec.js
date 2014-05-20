@@ -19,9 +19,9 @@ describe("Advanced chomping", function () {
 				expect(sizeInBytes).toBeANumber();
 				counter++;
 			},
-			function (err, lines) {
+			function (err, count) {
 				expect(err).toBeNull();
-				expect(lines).toBeFalsy();
+				expect(count).toEqual(4);
 				expect(counter).toEqual(4);
 				done();
 			}

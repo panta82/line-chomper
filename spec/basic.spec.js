@@ -52,7 +52,7 @@ describe("Basic chomping", function () {
 
 	it("can accept arbitrary stream", function (done) {
 		var stream = new Stream.Readable();
-		stream._read = function noop() {};
+		stream._read = function () {};
 
 		stream.push("line1\n");
 		stream.push("line2");
