@@ -4,30 +4,48 @@ var libLineChomper = require("../lib/line-chomper");
 
 describe("Basic chomping", function () {
 
-	function verifySmallFileProcessedCorrectly(err, lines) {
+	function verifySmallFileProcessedCorrectly(err, lines, lastEmptyLineKept) {
 		expect(err).toBeNull();
 		expect(lines).not.toBeNull();
-		expect(lines.length).toEqual(5);
+		expect(lines.length).toEqual(lastEmptyLineKept ? 5 : 4);
 		expect(lines[0]).toEqual("line1");
 		expect(lines[3]).toEqual("line4");
-		expect(lines[4]).toEqual("");
+		if (lastEmptyLineKept) {
+			expect(lines[4]).toEqual("");
+		}
 	}
 
 	it("should correctly chomp lines with *nix-style terminators (\\r)", function (done) {
 		libLineChomper.chomp(__dirname + "/files/small-nix.txt", function (err, lines) {
-			verifySmallFileProcessedCorrectly(err, lines);
+			verifySmallFileProcessedCorrectly(err, lines, false);
 			done();
 		});
 	});
 	it("should correctly chomp lines with mac-style terminators (\\n)", function (done) {
 		libLineChomper.chomp(__dirname + "/files/small-mac.txt", function (err, lines) {
-			verifySmallFileProcessedCorrectly(err, lines);
+			verifySmallFileProcessedCorrectly(err, lines, false);
 			done();
 		});
 	});
 	it("should correctly chomp lines with PC-style terminators (\\r\\n)", function (done) {
 		libLineChomper.chomp(__dirname + "/files/small-pc.txt", function (err, lines) {
-			verifySmallFileProcessedCorrectly(err, lines);
+			verifySmallFileProcessedCorrectly(err, lines, false);
+			done();
+		});
+	});
+
+	it("should keep last empty line if specified", function (done) {
+		libLineChomper.chomp(__dirname + "/files/small-nix.txt", { keepLastEmptyLine: true }, function (err, lines) {
+			verifySmallFileProcessedCorrectly(err, lines, true);
+			done();
+		});
+	});
+
+	it("can handle empty files", function (done) {
+		libLineChomper.chomp(__dirname + "/files/empty.txt", function (err, lines) {
+			expect(err).toBeNull();
+			expect(lines).not.toBeNull();
+			expect(lines.length).toEqual(0);
 			done();
 		});
 	});
