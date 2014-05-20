@@ -6,6 +6,7 @@ describe("Random access using line offsets", function () {
 
 	it("can chomp file from line offset to end", function (done) {
 		libLineChomper.chomp(__dirname + "/files/small-nix.txt", { fromLine: 1 }, function (err, lines) {
+			console.log(lines);
 			expect(lines.length).toEqual(3);
 			expect(lines[0]).toEqual("line2");
 			expect(lines[2]).toEqual("line4");
@@ -55,4 +56,30 @@ describe("Random access using line offsets", function () {
 		stream.resume();
 		stream.push(null);
 	});
+
+	it("can map line offsets", function (done) {
+		libLineChomper.mapLineOffsets(__dirname + "/files/small-nix.txt", 10, function (err, lineOffsets) {
+			expect(err).toBeNull();
+			expect(lineOffsets.length).toEqual(1);
+			expect(lineOffsets[0].line).toEqual(2);
+			expect(lineOffsets[0].offset).toEqual(12);
+			done();
+		});
+	});
+
+	it("can use mapped line offsets", function (done) {
+		var options = {
+			lineOffsets: [
+				{ line: 1, offset: 6 },
+				{ line: 2, offset: 12 },
+				{ line: 3, offset: 13 }
+			],
+			fromLine: 3
+		};
+		libLineChomper.chomp(__dirname + "/files/small-nix.txt", options, function (err, lines) {
+			expect(lines.length).toEqual(1);
+			expect(lines[0]).toEqual("line3");
+			done();
+		});
+	})
 });
