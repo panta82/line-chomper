@@ -6,9 +6,9 @@ var libLineChomper = require("../lib/line-chomper");
 	console.log(err, lines);
 });*/
 
-/*libLineChomper.chomp("../spec/files/small-nix.txt", { fromLine: 1, toLine: 2 }, function (err, lines) {
+libLineChomper.chomp("../spec/files/large-nix.txt", { fromLine: 112, toLine: 221 }, function (err, lines) {
 	console.log(lines);
-});*/
+});
 
 /*
 var stream = new Stream.Readable();
@@ -23,18 +23,3 @@ libLineChomper.chomp(stream, { fromByte: 3, toByte: 10 }, function (err, lines) 
 
 stream.resume();
 stream.push(null);*/
-
-
-var stream = new Stream.Readable();
-stream._read = function () {};
-
-stream.push("line1\n");
-stream.push("line2\n");
-stream.push("line3\n");
-
-libLineChomper.chomp(stream, { fromLine: 1, toLine: 5 }, function (err, lines) {
-	console.log(lines);
-});
-
-stream.resume();
-stream.push(null);
