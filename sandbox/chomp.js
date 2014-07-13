@@ -10,9 +10,9 @@ var libLineChomper = require("../lib/line-chomper");
 	console.log(err, lines);
 });*/
 
-/*libLineChomper.chomp("../spec/files/small-nix.txt", { fromLine: 1, toLine: 2 }, function (err, lines) {
+libLineChomper.chomp("../spec/files/small-nix.txt", { fromLine: 0, lineCount: 2 }, function (err, lines) {
 	console.log(lines);
-});*/
+});
 
 /*libLineChomper.chomp("../spec/files/large-nix.txt", { fromLine: 112, toLine: 221 }, function (err, lines) {
 	console.log(lines);
