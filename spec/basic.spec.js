@@ -62,7 +62,7 @@ describe("Basic chomping", function () {
 		});
 	});
 
-	it("trims leaves leading and trailing whitespace if specified", function (done) {
+	it("doesn't trim leading and trailing whitespace if specified", function (done) {
 		libLineChomper.chomp(__dirname + "/files/leading-ws.txt", { trim: false }, function (err, lines) {
 			expect(err).toBeNull();
 			expect(lines).not.toBeNull();
