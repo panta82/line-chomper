@@ -59,8 +59,8 @@ describe("Basic chomping", function () {
 			expect(lines[1]).toEqual("this line has trailing whitespace");
 			expect(lines[2]).toEqual("this line has none");
 			done();
-		})
-	})
+		});
+	});
 
 	it("trims leaves leading and trailing whitespace if specified", function (done) {
 		libLineChomper.chomp(__dirname + "/files/leading-ws.txt", { trim: false }, function (err, lines) {
@@ -71,8 +71,8 @@ describe("Basic chomping", function () {
 			expect(lines[1]).toEqual("this line has trailing whitespace    ");
 			expect(lines[2]).toEqual("this line has none");
 			done();
-		})
-	})
+		});
+	});
 
 	it("can accept arbitrary stream", function (done) {
 		var stream = new Stream.Readable();
