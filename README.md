@@ -164,6 +164,14 @@ All options with defaults and helpful comments can be seen [here](lib/vars.js).
 
 **************
 
+## Update log
+
+|Date      |Version|Description
+|----------|-------|-----------
+|2015-05-06|0.5.0  |Added `lineCallback` argument to `mapLineOffsets()`
+
+**************
+
 ## Licence
 
 Apache v2. I'm told it's nice and fluffy. Read it [here](LICENCE).
