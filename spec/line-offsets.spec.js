@@ -66,6 +66,29 @@ describe("Random access using line offsets", function () {
 		});
 	});
 
+	it("can call custom line callback while mapping line offsets", function (done) {
+		libLineChomper.mapLineOffsets(__dirname + "/files/small-nix.txt", lineCallback, finalCallback);
+
+		var counter = 0;
+		function lineCallback(line, offset, sizeInBytes) {
+			counter++;
+			if (counter === 1) {
+				expect(line).toEqual("line1");
+				expect(offset).toEqual(0);
+				expect(sizeInBytes).toEqual(6);
+			}
+			return false;
+		}
+
+		function finalCallback(err, lineOffsets, count) {
+			expect(err).toBeNull();
+			expect(lineOffsets.length).toEqual(0);
+			expect(count).toEqual(4);
+			expect(counter).toEqual(4);
+			done();
+		}
+	});
+
 	it("can use mapped line offsets", function (done) {
 		var options = {
 			lineOffsets: [

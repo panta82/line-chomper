@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/panta82/line-chomper/issues"
   },
-  "homepage": "https://github.com/panta82/line-chomper"
+  "homepage": "https://github.com/panta82/line-chomper",
+  "devDependencies": {
+    "jasmine-core": "^2.3.0"
+  }
 }
