@@ -1,6 +1,6 @@
 # line-chomper
 
-Chomps utf-8 based byte stream into lines. 
+Chomps utf-8 based byte stream into lines.
 
 - Interactive line processing (callback-based, no loading the entire file into RAM)
 - Optionally, return all lines in an array (detailed or raw mode)
@@ -148,19 +148,19 @@ All options with defaults and helpful comments can be seen [here](lib/vars.js).
 **Q**: Why another line splitter library?
 
 > **A:** I was frustrated with other libraries being
-1. too old / outdated
-2. nice but (I hear) buggy
-3. lacking advanced options for random access that I need for my project
+> 1. too old / outdated
+> 2. nice but (I hear) buggy
+> 3. lacking advanced options for random access that I need for my project
 
 **Q**: Why the name '*-chomper'? That word doesn't mean what you think it means
 > **A:** All the good, obvious names were taken
 
 **Q**: What's next?
 > **A:** Probably a slow decline into the maintenance mode, unless there is pressing need to expand. Bug fixes are always welcome. Also, I might add an advanced asynchronous chunk-by-chunk processing mode, suitable for handling large files with progress reports, buffered DB access and such.
-*TL;DR:*
-1. Bug fixes
-2. Maybe a new feature or two
-3. Profit
+> *TL;DR:*
+> 1. Bug fixes
+> 2. Maybe a new feature or two
+> 3. Profit
 
 **************
 
